@@ -1,0 +1,28 @@
+
+.TH CLIENT 1
+.SH NAME
+client \- client takes command and sends to server to execute
+.SH SYNOPSIS
+.B client [port] [ip-address]
+.SH DESCRIPTION
+When the client process starts, it looks for server to connect.
+If it can't find server to connect given the port and ip-address, it will exit immediately.
+.TP
+.B client 
+will take two inputs(from keyboard or from file)
+.TP
+.B  T<n>
+The parameter is an integer > 0. This command will be sent to the server
+for processing. The client sits idle waiting for the server to complete the transaction.
+.TP
+.B  S<n>
+This command simulates having the client wait between receiving new
+transactions to process. The client waits for a time determined by integer parameter
+n, with n between 0 and 100.
+.TP
+Also, the client will write the transaction log to logfile named as
+.B [hostname].[pid].log
+.SH EXAMPLES
+.B ./client 5000 127.0.0.1
+.SH SEE ALSO
+SERVER(1)

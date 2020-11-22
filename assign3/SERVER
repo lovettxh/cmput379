@@ -1,0 +1,24 @@
+
+.TH SERVER 1
+.SH NAME
+server \- server receives commands from clients and executes the commands
+.SH SYNOPSIS
+.B server [port]
+.SH DESCRIPTION
+When the server starts, it will starts to wait for client to connect.
+Then it will read data sent from client and execute the command with the given arguments.
+.TP
+The command includes
+.TP
+.B T<n>
+Execute a transaction with integer parameter n, with n > 0. The parameter n is
+used by Trans to determine how long to simulate the execution of the transaction
+.TP
+The server will have 60 seconds timeout on waiting for client to connect.
+.TP
+THe server will write all of its transactions to logfile named as
+.B server.log
+.SH EXAMPLES
+.B ./server 5000
+.SH SEE ALSO
+CLIENT(1)
